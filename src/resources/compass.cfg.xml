@@ -1,0 +1,22 @@
+<compass-core-config
+	xmlns="http://www.compass-project.org/schema/core-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.compass-project.org/schema/core-config
+http://www.compass-project.org/schema/compass-core-config-2.2.xsd">
+	<compass name="pages">
+		<connection>
+			<file path="c:/temp" />
+		</connection>
+
+		<transaction lockTimeout="60" lockPollInterval="200" />
+		
+		<searchEngine>
+			<allProperty enable="false" />
+		</searchEngine>
+
+		<mappings>
+			<class name="com.coupon.search.Coupon" />
+		</mappings>
+
+	</compass>
+</compass-core-config>

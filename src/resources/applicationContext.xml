@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+
+	<!-- Entities Beans -->
+	<bean id="userDao" class="com.pics.dao.impl.UserDaoImpl" />
+	<bean id="jobDao" class="com.pics.dao.impl.JobDaoImpl" />
+	
+	<!-- Pages/GUI Beans -->
+	 
+	
+	<!-- bean id="login" name="login" class="com.coupon.gui.LoginBean" scope="session">
+		<property name="userHandler" ref="userHandler" />
+		<property name="customerHandler" ref="customerHandler" />
+		<property name="couponHandler" ref="couponHandler" />
+		<constructor-arg index="0">
+            <ref bean="couponSession"/>
+        </constructor-arg>
+		
+	</bean>
+	
+	<bean id="joinGroup" name="joinGroup" class="com.coupon.gui.JoinGroup" scope="session">
+		<property name="couponSession" ref="couponSession" />
+	</bean>
+	
+	<bean id="createGroup" name="createGroup" class="com.coupon.gui.CreateGroup" scope="session">
+		<property name="couponSession" ref="couponSession" />
+	</bean>
+	
+	<bean id="couponSession" name="couponSession" class="com.coupon.gui.CouponSession" scope="session"></bean>
+	
+	-->
+	
+	
+	<!-- Business-Logic/BE Beans -->
+	<bean id="userHandler" class="com.pics.bl.UserHandler">
+		<property name="userDao" ref="userDao" />
+	</bean>
+	<bean id="jobHandler" class="com.pics.bl.JobHandler">
+		<property name="jobDao" ref="jobDao" />
+	</bean>
+	
+	
+	<!--  datasource configuration -->
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost/pics" />
+		<property name="username" value="root" />
+		<property name="password" value="mysql" />
+	</bean>
+
+	<bean id="persistenceUnitManager"
+		class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
+		<property name="persistenceXmlLocations">
+			<list>
+				<!--<value>/WEB-INF/classes/persistence.xml</value>-->
+				<value>persistence.xml</value>
+			</list>
+		</property>
+		<property name="defaultDataSource" ref="dataSource" />
+		<property name="loadTimeWeaver">
+			<bean
+				class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver" />
+		</property>
+	</bean>
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="picsPersistent" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter" ref="jpaAdapter" />
+		<property name="persistenceUnitManager" ref="persistenceUnitManager" />
+	</bean>
+
+	
+	<bean id="jpaAdapter"
+		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+		<property name="database" value="MYSQL" />
+		<property name="showSql" value="true" />
+	</bean>
+	
+	
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
+
+
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
+	
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+	
+</beans>

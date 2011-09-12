@@ -1,0 +1,6 @@
+
+In order to convert to messages_iw
+
+
+
+C:\>C:\Dori\java\jdk1.6.0_17\bin\native2ascii.exe -encoding UTF-8 C:\Dori\workarea\android\deal3g\src\resources\messages.properties C:\Dori\workarea\android\deal3g\src\resources\messages_iw.properties

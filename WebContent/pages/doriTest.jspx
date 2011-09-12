@@ -1,0 +1,379 @@
+<f:view xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ice:loadBundle basename="messages" var="msg" />
+
+	<ice:outputHtml  dir="RTL">
+		<ice:outputHead>
+			<ice:outputStyle type="text/css" rel="stylesheet"
+				href="../css/showcase_style.css" />
+			<ice:outputStyle type="text/css" rel="stylesheet"
+				href="../css/deal.css" />
+			<ice:outputStyle type="text/css" rel="stylesheet"
+				href="../css/showcase_overrides.css" />
+			<ice:outputStyle type="text/css" rel="stylesheet"
+				href="../css/showcase_layout.css" />
+			<ice:outputStyle type="text/css" rel="stylesheet"
+				href="../css/xp.css" />
+			<ice:outputStyle type="text/css" rel="stylesheet"
+				href="../css/jquery.fancybox.css" />
+
+
+			<script>
+	function updateHidden(elem) {
+		document.getElementById('loginForm:hiddenGroupId').value = elem.title;
+	}
+</script>
+<script src="../js/jquery.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+     jQuery(document).ready(function(){
+       jQuery("a.test").fancybox({
+    	    'zoomOpacity'			: true,
+    		'overlayShow'			: false,
+    		'zoomSpeedIn'			: 500,
+    		'zoomSpeedOut'			: 500,
+			'width'					:500
+    	 });
+     });
+
+   </script>
+<script type="text/javascript" src="../js/jquery.fancybox-1.2.1.js"></script>
+
+		</ice:outputHead>
+		<body>
+		<ice:messages id="globalError" globalOnly="true" tooltip="true" />
+
+		<ice:panelGroup id="login" style="margin-top:20%">
+			<center>
+			<ice:form id="loginForm">
+				<ice:inputHidden id="hiddenGroupId" value="#{login.hiddenGroupId}" />
+				<ice:inputHidden id="hiddenCompanyId" value="#{login.hiddenCompanyId}" />
+				<div dir="rtl">
+					<table>
+						<tr>
+							<td>
+								<ice:outputLabel id="usernameLabel" value="#{msg.search}" />
+							</td>
+							<td>
+								<ice:outputLabel for="SlctCompTyp" value="#{msg.area}"/>
+							</td>
+						</tr>	
+						
+						 
+						
+					<tr>
+						<td>
+								<ice:selectOneRadio layout="pageDirection"> 
+								  <f:selectItem itemLabel="סוג" itemValue="Item1" />
+								  <f:selectItem itemLabel="שם" itemValue="Item2" />
+								</ice:selectOneRadio> 
+						</td>
+						<td>
+						   <table>
+								<tr>
+									<td>
+										<div>
+											<ice:selectInputText id="selectedCompanyName" rows="#{login.couponListLength}" width="300" value="#{login.selectedGroup}"
+												valueChangeListener="#{login.selectInputValueChanged}" >
+												<!-- <f:selectItems    id="AutoCmpTxtItms" value="#{login.couponMatchPossibilities}" />-->
+											</ice:selectInputText>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div>
+											<ice:selectInputText id="selectedCompanyName2" rows="#{login.couponListLength}" width="300" value="#{login.selectedGroup}"
+												valueChangeListener="#{login.selectInputValueChanged}" >
+												<!-- <f:selectItems    id="AutoCmpTxtItms" value="#{login.couponMatchPossibilities}" />-->
+											</ice:selectInputText>
+										</div>
+									</td>
+								</tr>		
+							</table>
+						</td>
+						<!-- 
+						<td>	
+							<div id="Aera">
+								TO DO 
+									valueChangeListener="#{login.effectChangeListener}"
+								TO DO  till here
+								
+								<ice:selectOneMenu id="SlctCompTyp" value="#{login.selectedComponent}" 
+								valueChangeListener="#{login.changeCategoryListner}" partialSubmit="true" immediate="true">
+									<f:selectItems  id="SlctcompTypeItms" value="#{login.componentItems}"/>
+								</ice:selectOneMenu>
+							</div>
+						</td>	
+						-->
+						<td> 
+							<div id="Category"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div>
+									<ui:repeat value="#{login.couponMatchPossibilities}" var="product">
+										<div onclick="document.getElementById('loginForm:selectedCompanyName').value=this.innerHTML;
+											document.getElementById('loginForm:hiddenCompanyId').value=#{product.value}"  
+											onMouseOver="this.style.backgroundColor='#F0F0F0'" 
+											onMouseOut="this.style.backgroundColor='#FFFFFF'" 
+											class="iceSelInpTxtRow" style="border: 1px solid #DEDEDE;">#{product.label}</div>
+									</ui:repeat>
+									
+								</div>
+					</td>
+					</tr>
+					<tr>
+						<td>
+							<ice:commandButton id="submitLogin" value="#{msg.submitSearch}" action="#{login.submitSearch}" />
+						</td>
+					</tr>
+				</table>
+				</div>
+				<ice:panelGroup>
+						<ui:repeat value="#{login.mockList}" var="coupon">
+							<div class="deal" name="#{coupon.id}" style="width: 770px;">
+								<div class="rdeal">
+									<div class="dealimg">
+										<a href="#">
+											<img src="../images/img_9885_17_61.png"/>
+										</a>
+									</div>
+
+									<div class="dealtitle">
+										<h3>
+											<ice:outputLink target="_blank" value="http://icefaces.org"><ice:outputLabel  value="#{coupon.dealDescription}" /></ice:outputLink>
+										</h3>
+									</div>
+							
+									<div id="rdealfoot">
+										<ul>
+											<li style="background:none;margin-top:-15px;" class="area"><ice:outputLabel  value="אזור: מרכז" /></li>
+											<li style="background:none;margin-top:-15px;" class="joined">קטגוריה: מסעדרות</li>
+											<li style="background:none;margin-top:-15px;" class="joined">הצטרפו: 130</li>
+											<li style="background:none;margin-top:-15px;" class="time">
+												<span class="timechange">זמן לסגירה: 20:35:45</span>
+											</li>
+										</ul>
+									</div>
+								
+									
+								</div>
+							 
+								<div class="ldeal">
+									<div class="ldealtop" style="height:100px;">
+										<div id="arrow">
+											<div class="price"><span class="nobold">&#8362;</span><ice:outputLabel style="margin-left:-7px;color:#FF9617"   value="#{coupon.dealPrice}" /></div>
+											<div class="wslogo" >
+												<img  src="../images/dealHyoum.png"/>
+											</div>
+										</div>
+							
+										<div id="costs" style="top:55px;">
+												<div class="right">
+													<ice:outputLabel   style="float:right;margin-left:5px"  value=":במקום" />
+													<b>&#8362;<ice:outputLabel  style="float:right"  value="#{coupon.originalPrice}" /></b><br></br>
+													<ice:outputLabel style="float:right;margin-left:5px"    value=":הנחה" />
+													<ice:outputLabel  style="float:right"  value="#{coupon.dealDiscount}%" />
+												</div>
+												<div class="left">
+													חיסכון<br></br>
+														&#8362;<ice:outputLabel style="color:#5E901B"   value="#{coupon.saveMoney}" />								
+												</div>
+										</div>
+							
+										
+
+									</div>
+							
+									<div id="ldealfoot2" >
+										<a href="#">
+											<img src="../images/buyCoupon.png"/>
+										</a>
+									</div>
+							
+									<div id="ldealfoot" style="margin-top:-5px">
+										<ice:outputLink  styleClass="test" style="margin-left:-3px;" value="/deal3g/pages/mygroups.jspx?selectedCouponId=#{coupon.id}" rendered="#{coupon.hasGroup}">
+											<ice:graphicImage url="/images/joinGroup.png" ></ice:graphicImage>
+ 										</ice:outputLink>
+ 										<ice:outputLink styleClass="test" style="margin-left:-3px;" value="/deal3g/pages/newGroup.jspx?selectedCouponId=#{coupon.id}" rendered="#{!coupon.hasGroup}">
+											<ice:graphicImage url="/images/createGroup.png" ></ice:graphicImage>  
+ 										</ice:outputLink>
+									</div>
+								</div>
+								
+								
+							</div>
+						</ui:repeat>
+				</ice:panelGroup>
+				
+<!-- 
+				<ice:panelGroup styleClass="rowSelectorContainer">
+					<ice:panelGroup styleClass="exampleBox ">
+
+						<ice:dataPaginator id="dataScroll_1"
+							rendered="#{login.enablePagination}" for="couponList"
+							fastStep="3" paginator="true" paginatorMaxPages="4">
+							<f:facet name="first">
+								<ice:graphicImage id="firstpage_1"
+									url="../images/arrow-first.gif" style="border:none;"
+									title="#{msg['page.dataScrolling.firstpage']}" />
+							</f:facet>
+							<f:facet name="last">
+								<ice:graphicImage id="lastpage_1" url="../images/arrow-last.gif"
+									style="border:none;"
+									title="#{msg['page.dataScrolling.lastpage']}" />
+							</f:facet>
+							<f:facet name="previous">
+								<ice:graphicImage id="previouspage_1"
+									url="../images/arrow-previous.gif" style="border:none;"
+									title="#{msg['page.dataScrolling.previouspage']}" />
+							</f:facet>
+							<f:facet name="next">
+								<ice:graphicImage id="nextpage_1" url="../images/arrow-next.gif"
+									style="border:none;"
+									title="#{msg['page.dataScrolling.nextpage']}" />
+							</f:facet>
+							<f:facet name="fastforward">
+								<ice:graphicImage id="fastforward_1"
+									url="../images/arrow-ff.gif" style="border:none;"
+									title="#{msg['page.dataScrolling.fastforward']}" />
+							</f:facet>
+							<f:facet name="fastrewind">
+								<ice:graphicImage id="fastrewind_1" url="../images/arrow-fr.gif"
+									style="border:none;"
+									title="#{msg['page.dataScrolling.fastbackward']}" />
+							</f:facet>
+						</ice:dataPaginator>
+
+						<ice:dataTable id="couponList" var="coupon"
+							value="#{login.mockList}"
+							rows="#{login.itemPerPage}" columnClasses="tableCol">
+							<ice:column>
+
+								<f:facet name="header">
+									<ice:outputText id="column1" value="columnA" />
+								</f:facet>
+								<ice:outputText id="desc"
+									value="#{coupon.dealDescription}" />
+
+							</ice:column>
+
+							<ice:column>
+								<f:facet name="header">
+									<ice:outputText id="column2" value="columnB" />
+								</f:facet>
+								<ice:outputText id="FirstName"
+									value="#{coupon.originalPrice}" />
+
+							</ice:column>
+
+							<ice:column>
+								<f:facet name="header">
+
+
+								</f:facet>
+
+								<ice:commandButton value="#{msg.join}"
+									title="#{coupon.id}" onclick="
+	updateHidden(this);;"
+actionListener="#{login.join}"></ice:commandButton>
+
+							</ice:column>
+
+
+						</ice:dataTable>
+
+						<div id="dealim">
+						<ui:repeat value="#{login.mockList}" var="coupon">
+							<div class="deal" name="#{coupon.id}">
+								<div class="rdeal">
+									<div class="dealimg">
+										<a href="#">
+											<img src="../images/img_9885_17_61.png"/>
+										</a>
+									</div>
+
+									<div class="dealtitle">
+										<h3>
+											<a href="#">something</a>
+										</h3>
+									</div>
+							
+									<div id="dealinfo">
+										<ul>
+											<li class="area">somethig2</li>
+											<li class="sep"></li>
+											<li class="joined">130</li>
+
+											<li class="sep"></li>
+											<li class="time">
+												<span class="timechange">82:47:55</span>something3
+											</li>
+										</ul>
+									</div>
+								
+									<div id="rdealfoot">
+										<ul>
+											<li class="liked l1649">
+												<a href="#" onclick="vote(1649); return false;;">something4</a>
+											</li>
+
+											<li class="comments">
+												<a class="comments" href="http://www.dailys.co.il/chat/index.php?dealid=1649">0something5 </a>
+											</li>
+								
+											<li class="addfav f1649">
+												<a href="#" onclick="fav(1649);return false;;">something6</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							
+								<div class="ldeal">
+									<div class="ldealtop">
+										<div id="arrow">
+											<div class="price">
+												<span class="nobold">something7</span>29
+											</div>
+											<div class="wslogo">
+												<img src="../images/dealHyoum.png"/>
+											</div>
+										</div>
+							
+										<div id="costs">
+											<div class="right">something8<b>something9</b>53%</div>
+											<div class="left">something933</div>
+										</div>
+							
+										<div id="way">more1</div>
+
+									</div>
+							
+							
+									<div id="ldealfoot">
+										<a href="#">
+											<img src="../images/join.png"/>
+										</a>
+									</div>
+								</div>
+							</div>
+						</ui:repeat>
+					</div>
+
+
+
+					</ice:panelGroup>
+				</ice:panelGroup>
+				 -->
+			</ice:form></center>
+		</ice:panelGroup>
+
+		</body>
+	</ice:outputHtml>
+</f:view>
+

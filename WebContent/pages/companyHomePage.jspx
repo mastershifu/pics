@@ -1,0 +1,18 @@
+<f:view xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ice="http://www.icesoft.com/icefaces/component"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ice:loadBundle basename="messages" var="msg" />
+ 
+      <ice:outputHtml dir="rtl">
+            <ice:outputHead>
+			
+
+            </ice:outputHead>
+            <body>
+Company Home Page 
+here you can see your coupons , manage coupons
+</body>
+</ice:outputHtml>
+</f:view>

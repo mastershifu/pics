@@ -1,0 +1,279 @@
+/* deals */
+
+
+#nlmsg {
+    font-size: 18px;
+    line-height: 22px;
+    padding: 15px;
+    text-align: center;
+}
+
+
+#mailbox {
+    border: 0 none;
+    color: #CCCCCC;
+    direction: ltr;
+    font-size: 22px;
+    height: 26px;
+    left: 26px;
+    line-height: 22px;
+    position: absolute;
+    top: 72px;
+    width: 220px;
+}
+
+#newsletter {
+    background: url("../images/email_box.jpg") no-repeat scroll left top transparent;
+    color: #535353;
+    height: 176px;
+    left: 0;
+    margin-top: 48px;
+    position: relative;
+    top: 0;
+    width: 271px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#sortndisplay .sorttext {
+float:right;
+line-height:31px;
+direction:rtl;
+font-size:12px;
+font-weight:12px;
+}
+
+#sortndisplay .sort {
+float:right;
+}
+#sortndisplay .kama {
+	float: right;
+    height: 31px;
+    line-height: 31px;
+    margin: 0 5px;
+	direction:rtl;
+	font-size:12px;
+	font-weight:12px;
+    padding: 0 10px;
+}
+#sortndisplay #formsort {
+visibility:hidden;
+}
+#sortndisplay .display {
+float:left;
+}
+
+#dealim {
+float:left;
+}
+#deals {
+width:764px;
+float:left;
+}
+.deal .rdeal:hover {
+background:url("../images/dealbgb.png") repeat-x scroll 0 bottom #dfeaea;
+}
+.deal {
+position:relative;
+width:764px;
+height:174px;
+border: 1px solid #D9D9D9;
+background:url("../images/dealbgb.png") repeat-x scroll 0 bottom #fff;
+margin-bottom:15px;
+}
+.deal .rdeal {
+width:592px;
+height:174px;
+float:right;
+border-left:1px solid #D9D9D9;
+}
+.deal .dealimg {
+width:169px;
+height:110px;
+margin:10px 10px 15px;
+border:1px solid black;
+float:right;
+}
+.deal .dealimg img {
+direction:rtl;
+width:169px;
+height:110px;
+}
+.deal .dealtitle {
+height:108px;
+width:370px;
+float:right;
+direction:rtl;
+}
+.deal .rdeal h3,.deal .rdeal h3 a {
+color:#535353;
+font-size:19px;
+width:370px;
+min-height:30px;
+margin-top:10px;
+float:right;
+line-height:24px;
+font-weight:bold;
+}
+#dealinfo {
+float:right;
+width:370px;
+font-weight:bold;
+font-size:11px;
+}
+#dealinfo ul {
+width:100%;
+list-style:none;
+}
+#dealinfo ul li.area { background-position:right -38px;}
+#dealinfo ul li.joined { background-position:right -19px; direction:rtl; }
+#dealinfo ul li.time { background-position:right 1px;margin-left:0;}
+#dealinfo ul li.sep { background:#D9D9D9;width:1px;margin:0 0 0 4px;padding:0;}
+#dealinfo ul li {
+background-image:url("../images/dealinfobg.png");
+background-repeat:no-repeat;
+float:right;
+color:#6f6f6f;
+font-size:13px;
+margin-left:10px;
+padding-right:20px;
+height:18px;
+line-height:18px;
+}
+#rdealfoot {
+clear:right;
+width:592px;
+height:35px;
+line-height:35px;
+border-top:1px solid #d9d9d9
+}
+#rdealfoot ul {
+list-style:none;
+}
+#rdealfoot ul li {
+padding:0 20px 0 10px;
+text-align:center;
+margin-right:10px;
+border-left:1px solid #d9d9d9;
+float:right;
+line-height:35px;
+height:35px;
+font-size:13px;
+direction:rtl;
+position:relative;
+}
+#rdealfoot li.liked {
+background:url("../images/loved.png") no-repeat scroll right center transparent;
+cursor:default;
+width:110px
+}
+#rdealfoot li.comments {
+cursor:default;
+background:url("../images/comments.png") no-repeat scroll right center transparent;
+padding: 0 25px 0 10px;
+width:65px
+
+}
+#rdealfoot li.comments a,#rdealfoot li.liked a, #rdealfoot li.addfav a{ 
+    display: inline-block;
+    float: right;
+    width: 100%;
+	color:#595959;
+}
+#rdealfoot ul li a:hover {
+font-weight:bold;
+}
+#rdealfoot li.addfav {
+background:url("../images/fav.png") no-repeat scroll right 0 transparent;
+cursor:default;
+width:40px
+}
+#rdealfoot li.mfav {
+background:url("../images/fav.png") no-repeat scroll right -35px transparent;
+}
+#ldealfoot {
+	overflow: hidden;
+    width: 172px;
+	position:relative;
+	top:1px;
+	left:1px;
+}
+
+.ldeal {
+float:left;
+width:171px;
+height:171px;
+}
+.ldealtop {
+width:174px;
+height:137px;
+}
+#costs {
+    height: 68px;
+    position: relative;
+    top: 65px;
+    width: 173px;
+}
+#costs .right {
+    float: right;
+    font-size: 12px;
+    letter-spacing: 0.3pt;
+    line-height: 16px;
+    padding-right: 9px;
+    padding-top: 2px;
+    width: 45%;
+}
+#costs .left {
+    color: #5E901B;
+    float: left;
+    font-size: 15px;
+	font-weight: bold;
+    text-align: center;
+    width: 45%;
+}
+.nobold {
+font-weight:normal;
+padding-right:3px;
+font-size:20px;
+}
+#way {
+position:relative;
+top:35px;
+width:80%;
+text-align: center;
+font-size:12px;
+font-weight:bold;
+margin:0 auto;
+margin:10px;
+clear:both;
+}
+#arrow {
+    background: url("../images/arrow.png") repeat-x scroll 0 0 transparent;
+    display: block;
+    height: 40px;
+    left: 0;
+    line-height: 40px;
+    position: absolute;
+    width: 192px;
+	margin-top:9px;
+}
+.price {
+    color: #FF9617;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    padding-right: 25px;
+    width: 50px;
+}
+.wslogo{
+    left: 0;
+    padding: 4px;
+	}
+.wslogo img {
+    height: 30px;
+    width: 113px;
+}
+/* end deal */

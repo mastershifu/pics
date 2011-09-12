@@ -1,0 +1,46 @@
+<f:view xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ice="http://www.icesoft.com/icefaces/component"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ice:loadBundle basename="messages" var="msg" />
+ 
+      <ice:outputHtml dir="rtl">
+            <ice:outputHead>
+			
+
+            </ice:outputHead>
+            <body>
+			<div align="center">
+				<ice:form id="createGroupForm" binding="#{createGroup.bind}">
+					
+						<div style="margin-top:15px;float:right;width:100%;">
+								<ice:outputLabel style="float:right;margin-left:20px" value="בית עסק / מוצר" />
+								<ice:inputTextarea style="float:right;"  value="doriwaldman@gmail.com" />
+						</div>
+					
+						<div style="margin-top:15px;float:right;width:100%;">
+								<ice:outputLabel style="float:right;margin-left:20px" value="דואל" />
+								<ice:inputText style="float:right;"  value="doriwaldman@gmail.com" />
+						</div>
+						
+						
+						
+						<div style="margin-top:15px;float:right;width:100%;">
+								<ice:selectBooleanCheckbox style="float:right;margin-left:20px"  value="true" id="check"  />
+								<ice:outputLabel style="float:right"  value="#{createGroup.couponName} ברצוני להצטרף לקבוצה ולקבל מיילים כאשר יהיו מבצעים נוספים של " for="check" />
+								
+						</div>
+					
+						<div id="ldealfoot2">
+								<ice:commandButton style="margin-top:40px" type="submit" image="/images/join.png"  />						
+						</div>
+						
+						
+					</ice:form>
+				</div>	
+			
+            </body>
+            
+      </ice:outputHtml>      
+</f:view>

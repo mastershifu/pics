@@ -1,0 +1,81 @@
+<f:view xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ice="http://www.icesoft.com/icefaces/component"
+      xmlns:ui="http://java.sun.com/jsf/facelets"	  
+      xmlns:fb="http://www.facebook.com/2008/fbml"
+	  xmlns:og="http://ogp.me/ns#">
+
+<ice:loadBundle basename="messages" var="msg" />
+ 
+      <ice:outputHtml dir="rtl">
+            <ice:outputHead>
+            
+            <title>The Rock (1996)</title>
+    <meta property="og:title" content="The Rock"/>
+    <meta property="og:type" content="movie"/>
+    <meta property="og:url" content="http://www.imdb.com/title/tt0117500/"/>
+    <meta property="og:image" content="http://ia.media-imdb.com/rock.jpg"/>
+    <meta property="og:site_name" content="IMDb"/>
+    <meta property="fb:admins" content="USER_ID"/>
+    <meta property="og:description"
+          content="A group of U.S. Marines, under command of
+                   a renegade general, take over Alcatraz and
+                   threaten San Francisco Bay with biological
+                   weapons."/>
+                   
+                   
+            </ice:outputHead>
+            <body>
+			<div align="center">
+			<ice:form id="joinGroupForm" binding="#{joinGroup.bind}">
+				<div class="deal" style="width:592px;" >
+					<div class="rdeal">
+						<div class="dealimg">
+							<a href="#">
+								<img src="../images/img_9885_17_61.png"/>
+							</a>
+						</div>
+
+						<div class="dealtitle">
+							<h3>
+								<ice:outputLabel  value="ok" />
+							</h3>
+						</div>
+					
+
+						<div id="rdealfoot">
+							<ul>
+								<li style="background:none;margin-top:-15px;" class="area"><ice:outputLabel  value="אזור: מרכז" /></li>
+								<li style="background:none;margin-top:-15px;" class="joined">קטגוריה: מסעדרות</li>
+								<li style="background:none;margin-top:-15px;" class="joined">הצטרפו: 130</li>
+							</ul>
+						</div>
+					</div>	
+					
+						<div style="margin-top:15px;float:right;width:100%;">
+								<ice:outputLabel style="float:right;margin-left:20px" value="דואל" />
+								<ice:outputLabel style="float:right;"  value="doriwaldman@gmail.com" />
+						</div>
+						
+						<div style="margin-top:15px;float:right;width:100%;">
+								<ice:selectBooleanCheckbox style="float:right;margin-left:20px"  value="true" id="check"  />
+								<ice:outputLabel style="float:right"  value="#{joinGroup.groupName} ברצוני להצטרף לקבוצה ולקבל מיילים כאשר יהיו מבצעים נוספים של " for="check" />
+								
+						</div>
+					
+					<div id="ldealfoot2" style="margin-bottom:20px;">
+							<ice:commandButton style="margin-top:40px" type="submit" image="/images/join.png"  />						
+					</div>
+					
+						<div id="fb-root"></div>
+						<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+						<fb:like href="www.ynet.co.il" send="true" width="450" show_faces="true" font=""></fb:like>
+						
+						
+				</div>
+				</ice:form>	
+			</div>	
+            </body>
+            
+      </ice:outputHtml>      
+</f:view>

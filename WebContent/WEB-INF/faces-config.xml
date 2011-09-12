@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN" "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+<faces-config xmlns="http://java.sun.com/JSF/Configuration">
+	<application>
+	
+		
+			<variable-resolver>org.springframework.web.jsf.DelegatingVariableResolver</variable-resolver>
+			 
+			  <view-handler>
+                  com.icesoft.faces.facelets.D2DFaceletViewHandler
+            </view-handler>
+		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>iw</supported-locale>
+		</locale-config>
+		<message-bundle>facesMessages</message-bundle>
+	</application>
+
+
+
+
+
+	<navigation-rule>
+		<description></description>
+		<from-view-id>/pages/login.jspx</from-view-id>
+
+		<navigation-case>
+			<from-action>#{login.submitLogin}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/mygroups.jspx</to-view-id>
+			<redirect/>
+		</navigation-case>
+	
+	
+	<navigation-case>
+			<from-action>#{login.submitLogin}</from-action>
+			<from-outcome>failed</from-outcome>
+			<to-view-id>/pages/login.jspx</to-view-id>
+		</navigation-case>
+		
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/pages/login.jspx</from-view-id>
+	<navigation-case>
+			<from-action>#{login.companyLogin}</from-action>
+			<from-outcome>goToCompanyPage</from-outcome>
+			<to-view-id>/pages/companyHomePage.jspx</to-view-id>
+			<redirect/>
+		</navigation-case>
+		
+	</navigation-rule>
+	
+	
+	<navigation-rule>
+		<from-view-id>/pages/login.jspx</from-view-id>
+	<navigation-case>
+			<from-action>#{login.companyRegister}</from-action>
+			<to-view-id>/pages/login.jspx</to-view-id>
+		</navigation-case>
+		
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/pages/login.jspx</from-view-id>
+	<navigation-case>
+			<from-action>#{login.clearCompany}</from-action>
+			<to-view-id>/pages/login.jspx</to-view-id>
+		</navigation-case>
+		
+	</navigation-rule>
+	
+	
+
+
+
+</faces-config>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+	<display-name>dealb</display-name>
+	
+	  
+	<context-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>
+            /WEB-INF/classes/applicationContext.xml
+            </param-value>
+      </context-param>
+      
+	 <context-param>
+            <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+            <param-value>server</param-value>
+      </context-param>
+      <context-param>
+            <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+            <param-value>.jspx</param-value>
+      </context-param>
+      <context-param>
+            <param-name>javax.faces.application.CONFIG_FILES</param-name>
+            <param-value>/WEB-INF/faces-config.xml</param-value>
+      </context-param>
+      <context-param>
+            <param-name>com.icesoft.faces.concurrentDOMViews
+            </param-name>
+            <param-value>true</param-value>
+      </context-param>
+      <context-param>
+            <param-name>com.icesoft.faces.synchronousUpdate
+            </param-name>
+            <param-value>false</param-value>
+      </context-param>
+     
+     
+      <listener>
+     
+            <listener-class>
+                  com.icesoft.faces.util.event.servlet.ContextEventRepeater
+            </listener-class>
+      </listener>
+     
+      <listener>
+            <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+      </listener>
+      <listener>
+            <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+      </listener>
+      <!-- listener>
+            <listener-class>com.coupon.init.OurContext</listener-class>
+      </listener-->
+       
+      <servlet>
+            <servlet-name>FacesServlet</servlet-name>
+            <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+            <load-on-startup>1</load-on-startup>
+      </servlet>
+      <servlet>
+            <servlet-name>PersistentFacesServlet
+            </servlet-name>
+            <servlet-class>
+                  com.icesoft.faces.webapp.xmlhttp.PersistentFacesServlet
+            </servlet-class>
+            <load-on-startup>2</load-on-startup>
+      </servlet>
+      <servlet>
+            <servlet-name>BlockingServlet</servlet-name>
+            <servlet-class>com.icesoft.faces.webapp.xmlhttp.BlockingServlet
+            </servlet-class>
+            <load-on-startup>3</load-on-startup>
+      </servlet>
+      <servlet>
+            <servlet-name>ImageServlet</servlet-name>
+            <servlet-class>com.pics.servlet.ImageServlet</servlet-class>
+            <load-on-startup>4</load-on-startup>
+      </servlet>
+ 
+      <servlet-mapping>
+            <servlet-name>FacesServlet</servlet-name>
+            <url-pattern>*.faces</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping>
+            <servlet-name>FacesServlet</servlet-name>
+            <url-pattern>*.iface</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping>
+            <servlet-name>FacesServlet</servlet-name>
+            <url-pattern>*.jspx</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping>
+            <servlet-name>PersistentFacesServlet</servlet-name>
+            <url-pattern>*.jspx</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping>
+            <servlet-name>PersistentFacesServlet</servlet-name>
+            <url-pattern>*.iface</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping>
+            <servlet-name>PersistentFacesServlet</servlet-name>
+            <url-pattern>/xmlhttp/*</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping>
+            <servlet-name>BlockingServlet</servlet-name>
+            <url-pattern>/block/*</url-pattern>
+      </servlet-mapping>
+      <welcome-file-list>
+            <welcome-file>index.html</welcome-file>
+      </welcome-file-list>
+</web-app>
